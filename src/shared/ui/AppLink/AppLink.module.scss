@@ -1,0 +1,21 @@
+.link {
+  color: var(--inverted-primary-color);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  &:hover {
+    color: var(--inverted-secondary-color);
+  }
+}
+
+.primary {
+  background-color: var(--inverted-bg-color);
+  border-radius: 4px;
+}
+
+.secondary {
+  background-color: transparent;
+  border: 1px solid (var(--inverted-primary-color));
+  border-radius: 4px;
+}
