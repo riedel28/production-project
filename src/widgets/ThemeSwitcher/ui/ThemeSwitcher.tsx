@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { type FC } from 'react';
 
 import { cx } from 'shared/lib/cx';
 import { useTheme, Theme } from 'app/providers/ThemeProvider';
@@ -10,7 +10,7 @@ import SunIcon from 'shared/assets/icons/sun-icon.svg';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-  className?: string;
+  className?: string
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = props => {
@@ -24,11 +24,13 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = props => {
       className={cx(cls.themeSwitcher, {}, [className])}
       onClick={toggleTheme}
     >
-      {theme === Theme.DARK ? (
-        <MoonIcon className={cx(cls.themeIcon)} />
-      ) : (
-        <SunIcon className={cx(cls.themeIcon)} />
-      )}
+      {theme === Theme.DARK
+        ? (
+          <MoonIcon className={cx(cls.themeIcon)} />
+        )
+        : (
+          <SunIcon className={cx(cls.themeIcon)} />
+        )}
     </Button>
   );
 };

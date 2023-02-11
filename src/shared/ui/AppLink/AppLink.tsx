@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { type FC } from 'react';
+import { Link, type LinkProps } from 'react-router-dom';
 
 import { cx } from 'shared/lib/cx';
 
@@ -11,8 +11,8 @@ export enum AppLinkTheme {
 }
 
 interface AppLinkProps extends LinkProps {
-  className?: string;
-  theme?: AppLinkTheme;
+  className?: string
+  theme?: AppLinkTheme
 }
 
 export const AppLink: FC<AppLinkProps> = props => {
