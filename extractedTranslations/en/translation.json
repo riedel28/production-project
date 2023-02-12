@@ -5,5 +5,8 @@
   "Language": "",
   "MainPage": {
     "title": ""
+  },
+  "NotFoundPage": {
+    "title": ""
   }
 }
