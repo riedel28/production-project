@@ -2,11 +2,18 @@
   "AboutPage": {
     "title": ""
   },
+  "ErrorPage": {
+    "button": "",
+    "title": ""
+  },
   "Language": "",
   "MainPage": {
     "title": ""
   },
   "NotFoundPage": {
     "title": ""
-  }
+  },
+  "throw error": "",
+  "Обновить страницу": "",
+  "Произошла непредвиденная ошибка": ""
 }
