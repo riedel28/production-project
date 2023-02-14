@@ -7,10 +7,11 @@ import {
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { type BuildOptions } from './types/config';
 
-export function buildPlugins ({
+export function buildPlugins({
   paths,
   isDev
 }: BuildOptions): WebpackPluginInstance[] {
@@ -27,6 +28,9 @@ export function buildPlugins ({
       __IS_DEV__: JSON.stringify(isDev)
     }),
     new HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin()
+    new ReactRefreshWebpackPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    })
   ];
 }
