@@ -4,7 +4,7 @@ import { cx } from 'shared/lib/cx';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-  className?: string
+  className?: string;
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
@@ -16,6 +16,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
   return (
     <aside
+      data-testid="sidebar"
       className={cx(
         cls.sidebar,
         {
@@ -24,7 +25,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
         [className]
       )}
     >
-      <button onClick={onToggle}>Toggle</button>
+      <button data-testid="sidebar-toggle" onClick={onToggle}>
+        Toggle
+      </button>
     </aside>
   );
 };
