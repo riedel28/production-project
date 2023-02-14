@@ -11,7 +11,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:i18next/recommended'
   ],
-  overrides: [],
   settings: {
     react: {
       version: 'detect'
@@ -37,5 +36,13 @@ module.exports = {
         ignoreAttribute: ['data-testid']
       }
     ]
-  }
+  },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
+  ]
 };
