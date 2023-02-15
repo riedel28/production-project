@@ -5,7 +5,8 @@ import { cx } from 'shared/lib/cx';
 import cls from './Button.module.scss';
 
 export enum ThemeButton {
-  DEFAULT = 'default'
+  DEFAULT = 'default',
+  OUTLINE = 'outline',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { cx } from 'shared/lib/cx';
 
 import cls from './Sidebar.module.scss';
@@ -8,6 +9,8 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
+  const { t } = useTranslation();
+
   const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = () => {
@@ -26,7 +29,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       )}
     >
       <button data-testid="sidebar-toggle" onClick={onToggle}>
-        Toggle
+        {t('sidebar.toggle')}
       </button>
     </aside>
   );

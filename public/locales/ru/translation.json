@@ -6,5 +6,6 @@
   "NotFoundPage.title": "Страница не найдена",
   "Language": "Русский",
   "ErrorPage.title": "Произошла непредвиденная ошибка",
-  "ErrorPage.button": "Перезагрузить страницу"
+  "ErrorPage.button": "Перезагрузить страницу",
+  "sidebar.toggle": "Переключить сайдбар"
 }

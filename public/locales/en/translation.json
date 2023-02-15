@@ -6,5 +6,6 @@
   "NotFoundPage.title": "Not Found",
   "Language": "English",
   "ErrorPage.title": "Unexpected error occurred",
-  "ErrorPage.button": "Reload page"
+  "ErrorPage.button": "Reload page",
+  "sidebar.toggle": "Toggle sidebar"
 }
