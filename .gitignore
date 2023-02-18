@@ -5,5 +5,7 @@
 /.idea
 /.vscode
 
+/storybook-static
+
 # Misc
 .DS_Store
