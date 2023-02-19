@@ -1,6 +1,6 @@
-import { type RuleSetRule } from 'webpack';
+import type { RuleSetRule } from 'webpack';
 
-import { type BuildOptions } from './types/config';
+import type { BuildOptions } from './types/config';
 import { buildCSSLoader } from './loaders/buildCSSLoader';
 
 export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
@@ -13,25 +13,8 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
     ]
   };
 
-  const fileLoader = {
-    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
-    use: [
-      {
-        loader: 'file-loader'
-      }
-    ]
-  };
-
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/
-  };
-
-  const cssLoader = buildCSSLoader(isDev);
-
   const babelLoader = {
-    test: /\.(js|jsx|ts|tsx)$/,
+    test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
@@ -41,12 +24,30 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
           [
             'i18next-extract',
             {
-              locales: ['en', 'ru']
+              locales: ['en', 'ru'],
+              keyAsDefaultValue: true
             }
           ]
         ]
       }
     }
+  };
+
+  const cssLoader = buildCSSLoader(isDev);
+
+  const typescriptLoader = {
+    test: /\.tsx?$/,
+    use: 'ts-loader',
+    exclude: /node_modules/
+  };
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: 'file-loader'
+      }
+    ]
   };
 
   return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];

@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Loader } from './Loader';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { Loader } from './Loader';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -16,7 +16,7 @@ export default {
 } as ComponentMeta<typeof Loader>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Loader> = args => <Loader {...args} />;
+const Template: ComponentStory<typeof Loader> = (args) => { return <Loader {...args} />; };
 
 export const Light = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

@@ -11,10 +11,10 @@ interface LoaderProps {
 export const Loader: FC<LoaderProps> = ({ className }) => {
   return (
     <div className={cx('loader-ring', {}, [className])}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div />
+      <div />
+      <div />
+      <div />
     </div>
   );
 };

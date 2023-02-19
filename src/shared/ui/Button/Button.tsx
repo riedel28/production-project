@@ -1,4 +1,4 @@
-import { type FC, type ButtonHTMLAttributes } from 'react';
+import { FC, ButtonHTMLAttributes } from 'react';
 
 import { cx } from 'shared/lib/cx';
 
@@ -14,11 +14,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ThemeButton;
 }
 
-export const Button: FC<ButtonProps> = props => {
+export const Button: FC<ButtonProps> = (props) => {
   const { children, className, theme, ...rest } = props;
 
   return (
-    <button className={cx(cls.button, {}, [className, cls[theme]])} {...rest}>
+    <button
+      type="button"
+      className={cx(cls.button, {}, [className, cls[theme]])}
+      {...rest}
+    >
       {children}
     </button>
   );

@@ -1,5 +1,5 @@
 import {
-  type WebpackPluginInstance,
+  WebpackPluginInstance,
   ProgressPlugin,
   DefinePlugin,
   HotModuleReplacementPlugin
@@ -9,13 +9,12 @@ import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-import { type BuildOptions } from './types/config';
+import type { BuildOptions } from './types/config';
 
 export function buildPlugins({
   paths,
   isDev
 }: BuildOptions): WebpackPluginInstance[] {
-
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html
@@ -28,16 +27,16 @@ export function buildPlugins({
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
     }),
-    new ReactRefreshWebpackPlugin(),
+    new ReactRefreshWebpackPlugin()
   ];
 
   if (isDev) {
     plugins.push(new HotModuleReplacementPlugin());
-    plugins.push(new BundleAnalyzerPlugin(
-      {
+    plugins.push(
+      new BundleAnalyzerPlugin({
         openAnalyzer: false
-      }
-    ));
+      })
+    );
   }
 
   return plugins;

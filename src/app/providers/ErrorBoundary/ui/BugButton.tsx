@@ -7,7 +7,7 @@ export const BugButton = () => {
   const [error, setError] = useState(false);
   const { t } = useTranslation();
 
-  const onThrow = () => setError(true);
+  const onThrow = () => { return setError(true); };
 
   useEffect(() => {
     if (error) {

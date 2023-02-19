@@ -8,8 +8,8 @@ export const cx = (
   return [
     cls,
     ...Object.entries(mods)
-      .filter(([, value]) => Boolean(value))
-      .map(([className]) => className),
+      .filter(([, value]) => { return Boolean(value); })
+      .map(([className]) => { return className; }),
     ...additional.filter(Boolean)
   ].join(' ');
 };

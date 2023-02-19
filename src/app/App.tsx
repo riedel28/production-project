@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 
-import { AppRouter } from './router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { cx } from 'shared/lib/cx';
+import { AppRouter } from './router';
 
 import './styles/index.scss';
 
