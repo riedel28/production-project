@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import type { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
@@ -7,10 +7,14 @@ import { cx } from 'shared/lib/cx';
 import cls from './LanguageSwitcher.module.scss';
 
 interface LanguageSwitcherProps {
-  className?: string
+  className?: string;
+  short?: boolean;
 }
 
-export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
+export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
+  className,
+  short = false
+}) => {
   const { t, i18n } = useTranslation();
 
   const toggleLanguage = () => {
@@ -23,7 +27,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
   return (
     <div className={cx(cls.languageSwitcher, {}, [className])}>
       <Button theme={ThemeButton.DEFAULT} onClick={toggleLanguage}>
-        {t('Language')}
+        {t(short ? 'Language.short' : 'Language')}
       </Button>
     </div>
   );

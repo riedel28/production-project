@@ -5,6 +5,7 @@
   "AboutPage.title": "О сайте",
   "NotFoundPage.title": "Страница не найдена",
   "Language": "Русский",
+  "Language.short": "RU",
   "ErrorPage.title": "Произошла непредвиденная ошибка",
   "ErrorPage.button": "Перезагрузить страницу",
   "sidebar.toggle": "Переключить сайдбар"

@@ -5,6 +5,7 @@
   "AboutPage.title": "About",
   "NotFoundPage.title": "Not Found",
   "Language": "English",
+  "Language.short": "EN",
   "ErrorPage.title": "Unexpected error occurred",
   "ErrorPage.button": "Reload page",
   "sidebar.toggle": "Toggle sidebar"

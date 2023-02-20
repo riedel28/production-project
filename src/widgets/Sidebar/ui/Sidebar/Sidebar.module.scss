@@ -9,3 +9,22 @@
 .collapsed {
   width: var(--sidebar-width-collapsed);
 }
+
+.collapseBtn {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  border: 1px solid var(--inverted-primary-color);
+  border-radius: 4px;
+}
+
+.sidebarItems {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 60px;
+}
+
+.sidebarItem {
+  text-align: center;
+}
