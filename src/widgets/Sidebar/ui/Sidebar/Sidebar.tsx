@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { cx } from 'shared/lib/cx';
 import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 import cls from './Sidebar.module.scss';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface SidebarProps {
   className?: string;
