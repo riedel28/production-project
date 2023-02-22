@@ -8,5 +8,6 @@
   "Language.short": "EN",
   "ErrorPage.title": "Unexpected error occurred",
   "ErrorPage.button": "Reload page",
-  "sidebar.toggle": "Toggle sidebar"
+  "sidebar.toggle": "Toggle sidebar",
+  "Login": "Login"
 }

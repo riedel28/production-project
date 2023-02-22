@@ -1,3 +1,4 @@
+import { useTheme } from 'app/providers/ThemeProvider';
 import {
   FC,
   MouseEvent,
@@ -9,6 +10,7 @@ import {
 } from 'react';
 
 import { cx } from 'shared/lib/cx';
+import { Portal } from 'shared/ui/Portal/Portal';
 
 import cls from './Modal.module.scss';
 
@@ -26,6 +28,8 @@ export const Modal: FC<ModalProps> = (props) => {
 
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timeoutRef = useRef<number | null>(null);
+
+  const { theme } = useTheme();
 
   const handleContentClick = (e: MouseEvent) => {
     e.stopPropagation();
@@ -65,22 +69,25 @@ export const Modal: FC<ModalProps> = (props) => {
 
   const mods: Record<string, boolean> = {
     [cls.open]: isOpen,
-    [cls.isClosing]: isClosing
+    [cls.isClosing]: isClosing,
+    [cls[theme]]: true
   };
 
   return (
-    <div className={cx(cls.modal, mods, [className])}>
-      <div
-        className={cls.overlay}
-        onClick={handleClose}
-        onKeyDown={handleClose}
-        role="button"
-        tabIndex={0}
-      >
-        <div className={cls.content} onClick={handleContentClick}>
-          {children}
+    <Portal>
+      <div className={cx(cls.modal, mods, [className])}>
+        <div
+          className={cls.overlay}
+          onClick={handleClose}
+          onKeyDown={handleClose}
+          role="button"
+          tabIndex={0}
+        >
+          <div className={cls.content} onClick={handleContentClick}>
+            {children}
+          </div>
         </div>
       </div>
-    </div>
+    </Portal>
   );
 };

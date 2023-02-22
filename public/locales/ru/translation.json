@@ -8,5 +8,6 @@
   "Language.short": "RU",
   "ErrorPage.title": "Произошла непредвиденная ошибка",
   "ErrorPage.button": "Перезагрузить страницу",
-  "sidebar.toggle": "Переключить сайдбар"
+  "sidebar.toggle": "Переключить сайдбар",
+  "Login": "Войти"
 }
