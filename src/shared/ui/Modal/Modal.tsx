@@ -1,13 +1,5 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import {
-  FC,
-  MouseEvent,
-  ReactNode,
-  useState,
-  useRef,
-  useEffect,
-  useCallback
-} from 'react';
+import { FC, MouseEvent, ReactNode, useState, useRef, useEffect, useCallback } from 'react';
 
 import { cx } from 'shared/lib/cx';
 import { Portal } from 'shared/ui/Portal/Portal';
@@ -69,13 +61,12 @@ export const Modal: FC<ModalProps> = (props) => {
 
   const mods: Record<string, boolean> = {
     [cls.open]: isOpen,
-    [cls.isClosing]: isClosing,
-    [cls[theme]]: true
+    [cls.isClosing]: isClosing
   };
 
   return (
     <Portal>
-      <div className={cx(cls.modal, mods, [className])}>
+      <div className={cx(cls.modal, mods, [className, theme])}>
         <div
           className={cls.overlay}
           onClick={handleClose}
