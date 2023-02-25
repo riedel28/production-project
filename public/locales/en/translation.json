@@ -11,5 +11,8 @@
   "sidebar.toggle": "Toggle sidebar",
   "Login": "Login",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "Auth.form": "Login form",
+  "Wrong username or password": "Wrong username or password",
+  "Logout": "Logout"
 }

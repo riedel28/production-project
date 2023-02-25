@@ -11,5 +11,8 @@
   "sidebar.toggle": "Переключить сайдбар",
   "Login": "Войти",
   "username": "Имя пользователя",
-  "password": "Пароль"
+  "password": "Пароль",
+  "Auth.form": "Форма авторизации",
+  "Wrong username or password": "Неверное имя пользователя или пароль",
+  "Logout": "Выйти"
 }

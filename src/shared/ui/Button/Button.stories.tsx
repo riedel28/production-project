@@ -75,3 +75,9 @@ Large.args = {
   children: 'Button',
   size: SizeButton.LARGE
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Button',
+  disabled: true
+};

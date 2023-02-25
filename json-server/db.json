@@ -10,5 +10,12 @@
       "title": "Hello World 2",
       "body": "This is my second post"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "123"
+    }
   ]
 }

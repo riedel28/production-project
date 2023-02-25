@@ -2,18 +2,25 @@
   "AboutPage": {
     "title": ""
   },
+  "Auth": {
+    "form": ""
+  },
   "ErrorPage": {
     "button": "",
     "title": ""
   },
   "Language": "",
   "Login": "Login",
+  "Logout": "",
   "MainPage": {
     "title": ""
   },
   "NotFoundPage": {
     "title": ""
   },
+  "Wrong username or password": "",
+  "decrement": "decrement",
+  "increment": "increment",
   "login": "login",
   "password": "password",
   "sidebar": {
@@ -21,6 +28,7 @@
   },
   "throw error": "",
   "username": "username",
+  "Выйти": "",
   "Обновить страницу": "",
   "Произошла непредвиденная ошибка": ""
 }

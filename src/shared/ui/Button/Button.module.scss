@@ -59,3 +59,8 @@
 .large {
   font-size: var(--font-l);
 }
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

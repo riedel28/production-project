@@ -1,7 +1,6 @@
 :root {
-  --font-family-main: -apple-system, blinkmacsystemfont, avenir next, avenir,
-    segoe ui, helvetica neue, helvetica, cantarell, ubuntu, roboto, noto, arial,
-    sans-serif;
+  --font-family-main: -apple-system, blinkmacsystemfont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, cantarell, ubuntu, roboto, noto, arial, sans-serif;
   --font-size-s: 12px;
   --font-line-s: 20px;
   --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
@@ -24,4 +23,6 @@
 
   // Colors
   --overlay-color: rgb(0 0 0 / 50%);
+  --red-light: #ff00;
+  --red-dark: #ce0505;
 }

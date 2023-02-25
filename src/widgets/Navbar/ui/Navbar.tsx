@@ -6,6 +6,8 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUserAuthData, userActions } from 'entities/User';
 
 import cls from './Navbar.module.scss';
 
@@ -15,6 +17,9 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  const authData = useSelector(selectUserAuthData);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -25,6 +30,20 @@ export const Navbar = ({ className }: NavbarProps) => {
   const handleShowModal = useCallback(() => {
     setIsOpen(true);
   }, []);
+
+  const handleLogout = useCallback(() => {
+    dispatch(userActions.logout());
+  }, [dispatch]);
+
+  if (authData) {
+    return (
+      <div className={cx(cls.navbar, {}, [className])}>
+        <Button theme={ThemeButton.OUTLINE} className={cls.links} onClick={handleLogout}>
+          {t('Logout')}
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <nav className={cx(cls.navbar, {}, [className])}>
