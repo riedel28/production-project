@@ -1,0 +1,14 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.input {
+  margin-bottom: 16px;
+  padding: 4px 8px;
+}

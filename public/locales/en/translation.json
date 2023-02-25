@@ -9,5 +9,7 @@
   "ErrorPage.title": "Unexpected error occurred",
   "ErrorPage.button": "Reload page",
   "sidebar.toggle": "Toggle sidebar",
-  "Login": "Login"
+  "Login": "Login",
+  "username": "Username",
+  "password": "Password"
 }

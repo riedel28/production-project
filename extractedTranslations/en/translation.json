@@ -14,10 +14,13 @@
   "NotFoundPage": {
     "title": ""
   },
+  "login": "login",
+  "password": "password",
   "sidebar": {
     "toggle": ""
   },
   "throw error": "",
+  "username": "username",
   "Обновить страницу": "",
   "Произошла непредвиденная ошибка": ""
 }
