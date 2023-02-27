@@ -11,10 +11,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import type { BuildOptions } from './types/config';
 
-export function buildPlugins({
-  paths,
-  isDev
-}: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html

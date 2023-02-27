@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 
 import { cx } from 'shared/lib/cx';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { Modal } from 'shared/ui/Modal/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
 import cls from './LoginModal.module.scss';
 
@@ -17,7 +18,9 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} className={cx(cls.loginModal, {}, [className])} lazy>
-      <LoginForm />
+      <Suspense fallback={<Loader />}>
+        <LoginFormAsync />
+      </Suspense>
     </Modal>
   );
 };
