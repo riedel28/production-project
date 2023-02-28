@@ -1,19 +1,19 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Hello World",
       "body": "This is my first post"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Hello World 2",
       "body": "This is my second post"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "admin",
       "password": "123"
     }
