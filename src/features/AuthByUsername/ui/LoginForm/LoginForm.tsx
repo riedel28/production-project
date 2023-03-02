@@ -10,6 +10,7 @@ import {
   DynamicModuleLoader,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername';
 import { selectLoginPassword } from '../../model/selectors/selectLoginPassword/selectLoginPassword';
@@ -21,14 +22,15 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
-  const dispatch = useDispatch();
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   const username = useSelector(selectLoginUsername);
@@ -64,9 +66,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     [dispatch]
   );
 
-  const handleSubmit = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  const handleSubmit = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [onSuccess, dispatch, password, username]);
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>

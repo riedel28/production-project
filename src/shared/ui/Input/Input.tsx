@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, memo, ChangeEvent } from 'react';
+import { InputHTMLAttributes, memo, ChangeEvent } from 'react';
 
 import { cx } from 'shared/lib/cx';
 
@@ -14,7 +14,7 @@ export interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
 }
 
-export const Input: FC<InputProps> = memo((props: InputProps) => {
+export const Input = memo((props: InputProps) => {
   const { className, label, type = 'text', value, onChange, ...rest } = props;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

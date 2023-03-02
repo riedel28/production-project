@@ -1,10 +1,12 @@
-import { useState, FC } from 'react';
+import { useState, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { cx } from 'shared/lib/cx';
 import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { SidebarItemsList } from '../../model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 import cls from './Sidebar.module.scss';
 
@@ -12,7 +14,7 @@ interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar: FC<SidebarProps> = ({ className }) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const { t } = useTranslation();
 
   const [collapsed, setCollapsed] = useState<boolean>(false);
@@ -46,6 +48,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       </Button>
 
       <div className={cls.sidebarItems}>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
         <AppLink to={RoutePath.main} className={cls.sidebarItem}>
           {t('MainPage.title')}
         </AppLink>
@@ -55,4 +60,4 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       </div>
     </aside>
   );
-};
+});

@@ -1,4 +1,4 @@
-import { FC, ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 
 import { cx } from 'shared/lib/cx';
 
@@ -23,9 +23,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
+  children?: ReactNode;
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
   const { children, className, theme, square, disabled, size = SizeButton.MEDIUM, ...rest } = props;
 
   const mods: Record<string, boolean> = {
@@ -45,4 +46,4 @@ export const Button: FC<ButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});
