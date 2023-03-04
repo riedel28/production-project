@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { cx } from 'shared/lib/cx';
 
 import cls from './LanguageSwitcher.module.scss';
@@ -23,7 +23,7 @@ export const LanguageSwitcher = memo(({ className, short = false }: LanguageSwit
 
   return (
     <div className={cx(cls.languageSwitcher, {}, [className])}>
-      <Button theme={ThemeButton.DEFAULT} onClick={toggleLanguage}>
+      <Button theme={ButtonTheme.DEFAULT} onClick={toggleLanguage}>
         {t(short ? 'Language.short' : 'Language')}
       </Button>
     </div>

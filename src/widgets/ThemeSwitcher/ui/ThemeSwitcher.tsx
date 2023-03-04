@@ -1,34 +1,20 @@
-import { memo } from 'react';
-
 import { cx } from 'shared/lib/cx';
-import { useTheme, Theme } from 'app/providers/ThemeProvider';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
-
-import MoonIcon from 'shared/assets/icons/moon-icon.svg';
-import SunIcon from 'shared/assets/icons/sun-icon.svg';
-
-import cls from './ThemeSwitcher.module.scss';
+import React, { memo } from 'react';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import LightIcon from 'shared/assets/icons/theme-light.svg';
+import DarkIcon from 'shared/assets/icons/theme-dark.svg';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 interface ThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
-  const { className } = props;
-
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Button
-      theme={ThemeButton.DEFAULT}
-      className={cx(cls.themeSwitcher, {}, [className])}
-      onClick={toggleTheme}
-    >
-      {theme === Theme.DARK ? (
-        <MoonIcon className={cx(cls.themeIcon)} />
-      ) : (
-        <SunIcon className={cx(cls.themeIcon)} />
-      )}
+    <Button theme={ButtonTheme.CLEAR} className={cx('', {}, [className])} onClick={toggleTheme}>
+      {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
     </Button>
   );
 });

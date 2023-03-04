@@ -1,5 +1,5 @@
-import { useCallback, memo, useEffect } from 'react';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useCallback, memo } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { cx } from 'shared/lib/cx';

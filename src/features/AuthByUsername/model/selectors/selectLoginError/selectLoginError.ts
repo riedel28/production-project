@@ -1,5 +1,3 @@
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema } from 'app/providers/StoreProvider';
 
-export const selectLoginError = (state: StateSchema) => {
-  return state?.loginForm?.error || '';
-};
+export const selectLoginError = (state: StateSchema) => state?.loginForm?.error;

@@ -1,15 +1,16 @@
-.navbar {
-  display: flex;
-  align-items: center;
+.Navbar {
   width: 100%;
   height: var(--navbar-height);
-  background-color: var(--inverted-bg-color);
-  justify-content: end;
-  padding: 0 16px;
+  background: var(--inverted-bg-color);
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
 .links {
-  margin-left: 0 auto;
-  display: flex;
-  gap: 24px;
+  margin-left: auto;
+}
+
+.mainLink {
+  margin-right: 15px;
 }

@@ -1,11 +1,11 @@
 @import 'reset';
 @import 'variables/globals';
-@import 'themes/light';
+@import 'themes/normal';
 @import 'themes/dark';
 
-body {
-  font-family: var(--font-family-main);
-  font-size: var(--font-m);
+.app,
+.app_modal {
+  font: var(--font-m);
   color: var(--primary-color);
 }
 

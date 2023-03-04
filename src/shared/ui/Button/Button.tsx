@@ -1,35 +1,43 @@
+import { cx, Mods } from 'shared/lib/cx';
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
-
-import { cx } from 'shared/lib/cx';
-
 import cls from './Button.module.scss';
 
-export enum ThemeButton {
+export enum ButtonTheme {
   DEFAULT = 'default',
+  CLEAR = 'clear',
+  CLEAR_INVERTED = 'clearInverted',
   OUTLINE = 'outline',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted'
 }
 
-export enum SizeButton {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large'
+export enum ButtonSize {
+  M = 'size_m',
+  L = 'size_l',
+  XL = 'size_xl'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ThemeButton;
+  theme?: ButtonTheme;
   square?: boolean;
-  size?: 'small' | 'medium' | 'large';
+  size?: ButtonSize;
   disabled?: boolean;
   children?: ReactNode;
 }
 
 export const Button = memo((props: ButtonProps) => {
-  const { children, className, theme, square, disabled, size = SizeButton.MEDIUM, ...rest } = props;
+  const {
+    className,
+    children,
+    theme = ButtonTheme.OUTLINE,
+    square,
+    disabled,
+    size = ButtonSize.M,
+    ...otherProps
+  } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls[theme]]: true,
     [cls.square]: square,
     [cls[size]]: true,
@@ -39,9 +47,9 @@ export const Button = memo((props: ButtonProps) => {
   return (
     <button
       type="button"
-      className={cx(cls.button, mods, [className, cls[theme]])}
+      className={cx(cls.Button, mods, [className])}
       disabled={disabled}
-      {...rest}
+      {...otherProps}
     >
       {children}
     </button>

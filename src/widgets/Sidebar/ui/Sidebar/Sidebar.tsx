@@ -1,63 +1,49 @@
-import { useState, memo } from 'react';
-import { useTranslation } from 'react-i18next';
-
 import { cx } from 'shared/lib/cx';
-import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { memo, useMemo, useState } from 'react';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import cls from './Sidebar.module.scss';
 import { SidebarItemsList } from '../../model/items';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
-
-import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-  const { t } = useTranslation();
-
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = () => {
-    setCollapsed((prev: boolean) => {
-      return !prev;
-    });
+    setCollapsed((prev) => !prev);
   };
 
+  const itemsList = useMemo(() => {
+    return SidebarItemsList.map((item) => (
+      <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+    ));
+  }, [collapsed]);
+
   return (
-    <aside
+    <div
       data-testid="sidebar"
-      className={cx(
-        cls.sidebar,
-        {
-          [cls.collapsed]: collapsed
-        },
-        [className]
-      )}
+      className={cx(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
       <Button
-        theme={ThemeButton.BACKGROUND_INVERTED}
         data-testid="sidebar-toggle"
         onClick={onToggle}
         className={cls.collapseBtn}
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+        size={ButtonSize.L}
         square
-        size={SizeButton.LARGE}
       >
-        {collapsed ? '>>' : '<<'}
+        {collapsed ? '>' : '<'}
       </Button>
-
-      <div className={cls.sidebarItems}>
-        {SidebarItemsList.map((item) => (
-          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
-        ))}
-        <AppLink to={RoutePath.main} className={cls.sidebarItem}>
-          {t('MainPage.title')}
-        </AppLink>
-        <AppLink to={RoutePath.about} className={cls.sidebarItem}>
-          {t('AboutPage.title')}
-        </AppLink>
+      <div className={cls.items}>{itemsList}</div>
+      <div className={cls.switchers}>
+        <ThemeSwitcher />
+        <LanguageSwitcher short={collapsed} className={cls.lang} />
       </div>
-    </aside>
+    </div>
   );
 });
