@@ -1,7 +1,7 @@
 import type { RuleSetRule } from 'webpack';
 
 import type { BuildOptions } from './types/config';
-import { buildCSSLoader } from './loaders/buildCSSLoader';
+import { buildCssLoader } from './loaders/buildCssLoader';
 
 export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
   const svgLoader = {
@@ -33,7 +33,7 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
     }
   };
 
-  const cssLoader = buildCSSLoader(isDev);
+  const cssLoader = buildCssLoader(isDev);
 
   const typescriptLoader = {
     test: /\.tsx?$/,
