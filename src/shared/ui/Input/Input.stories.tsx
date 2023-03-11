@@ -1,8 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { Input } from './Input';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Input } from 'shared/ui/Input/Input';
 
 export default {
   title: 'shared/Input',
@@ -12,13 +10,10 @@ export default {
   }
 } as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => {
-  return <Input {...args} />;
-};
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Label',
-  type: 'text'
+  placeholder: 'Type text',
+  value: '123123'
 };
-Primary.decorators = [ThemeDecorator(Theme.LIGHT)];

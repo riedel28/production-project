@@ -1,28 +1,58 @@
-import { InputHTMLAttributes, memo, ChangeEvent } from 'react';
-
-import { cx, Mods } from 'shared/lib/cx';
-
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import React, {
+  InputHTMLAttributes, memo, useEffect, useRef, useState
+} from 'react';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readOnly'
->;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
-export interface InputProps extends HTMLInputProps {
-  className?: string;
-  label?: string;
-  type?: 'text' | 'password';
-  value?: string | number;
-  onChange?: (value: string) => void;
-  readonly?: boolean;
+interface InputProps extends HTMLInputProps {
+    className?: string;
+    value?: string | number;
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
-  const { className, label, type = 'text', value, onChange, readonly, ...rest } = props;
+  const {
+    className,
+    value,
+    onChange,
+    type = 'text',
+    placeholder,
+    autofocus,
+    readonly,
+    ...otherProps
+  } = props;
+  const ref = useRef<HTMLInputElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [caretPosition, setCaretPosition] = useState(0);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const isCaretVisible = isFocused && !readonly;
+
+  useEffect(() => {
+    if (autofocus) {
+      setIsFocused(true);
+      ref.current?.focus();
+    }
+  }, [autofocus]);
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
+    setCaretPosition(e.target.value.length);
+  };
+
+  const onBlur = () => {
+    setIsFocused(false);
+  };
+
+  const onFocus = () => {
+    setIsFocused(true);
+  };
+
+  const onSelect = (e: any) => {
+    setCaretPosition(e?.target?.selectionStart || 0);
   };
 
   const mods: Mods = {
@@ -30,21 +60,32 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-    <div className={cls.inputWrapper}>
-      {label && (
-        <label htmlFor={rest.id} className={cls.label}>
-          {label}
-        </label>
+    <div className={classNames(cls.InputWrapper, {}, [className])}>
+      {placeholder && (
+        <div className={cls.placeholder}>
+          {`${placeholder}>`}
+        </div>
       )}
-      <input
-        type={type}
-        id={rest.id}
-        value={value}
-        onChange={handleChange}
-        className={cx(cls.input, mods, [className])}
-        readOnly={readonly}
-        {...rest}
-      />
+      <div className={cls.caretWrapper}>
+        <input
+          ref={ref}
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          className={cls.input}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onSelect={onSelect}
+          readOnly={readonly}
+          {...otherProps}
+        />
+        {isCaretVisible && (
+          <span
+            className={cls.caret}
+            style={{ left: `${caretPosition * 9}px` }}
+          />
+        )}
+      </div>
     </div>
   );
 });

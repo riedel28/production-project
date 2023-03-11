@@ -1,13 +1,13 @@
-import { cx } from 'shared/lib/cx';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Loader } from 'shared/ui/Loader/Loader';
 import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {
-  className?: string;
+    className?: string;
 }
 
 export const PageLoader = ({ className }: PageLoaderProps) => (
-  <div className={cx(cls.PageLoader, {}, [className])}>
+  <div className={classNames(cls.PageLoader, {}, [className])}>
     <Loader />
   </div>
 );

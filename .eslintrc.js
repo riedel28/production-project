@@ -54,11 +54,13 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
-    'no-undef': 'off'
+    'no-undef': 'off',
+    'operator-linebreak': 'off'
   },
   globals: {
     __IS_DEV__: true,
-    __API__: true
+    __API__: true,
+    __PROJECT__: true
   },
   overrides: [
     {

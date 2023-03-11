@@ -1,16 +1,13 @@
-import { useEffect, Suspense } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { cx } from 'shared/lib/cx';
+import React, { Suspense, useEffect } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTheme } from 'app/providers/ThemeProvider';
+import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { AppRouter } from './router';
 
-import './styles/index.scss';
-
-export const App = () => {
+function App() {
   const { theme } = useTheme();
   const dispatch = useDispatch();
 
@@ -19,7 +16,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div className={cx('app', {}, [theme])}>
+    <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
         <div className="content-page">
@@ -29,4 +26,6 @@ export const App = () => {
       </Suspense>
     </div>
   );
-};
+}
+
+export default App;

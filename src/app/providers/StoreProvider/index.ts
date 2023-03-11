@@ -7,6 +7,5 @@ export {
   createReduxStore,
   StateSchema,
   AppDispatch,
-  ReduxStoreWithManager,
   ThunkConfig
 };

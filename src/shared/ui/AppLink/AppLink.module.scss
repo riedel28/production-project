@@ -1,21 +1,15 @@
-.link {
-  color: var(--inverted-primary-color);
-  text-decoration: none;
-  padding: 4px 8px;
-  border-radius: 4px;
-
-  &:hover {
-    color: var(--inverted-secondary-color);
-  }
+.AppLink {
+    color: var(--primary-color);
 }
 
 .primary {
-  background-color: var(--inverted-bg-color);
-  border-radius: 4px;
+    color: var(--primary-color);
 }
 
 .secondary {
-  background-color: transparent;
-  border: 1px solid (var(--inverted-primary-color));
-  border-radius: 4px;
+    color: var(--inverted-primary-color);
+}
+
+.red {
+    color: red;
 }
