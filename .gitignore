@@ -1,4 +1,14 @@
 /node_modules
 /build
 
+# Editor
+/.idea
+/.vscode
+
+/storybook-static
+
+.loki/report.html
+.loki/report.json
+
+# Misc
 .DS_Store

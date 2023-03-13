@@ -1,0 +1,18 @@
+{
+  "title": "Test",
+  "Translate": "Translate",
+  "MainPage.title": "Main",
+  "AboutPage.title": "About",
+  "NotFoundPage.title": "Not Found",
+  "Language": "English",
+  "Language.short": "EN",
+  "ErrorPage.title": "Unexpected error occurred",
+  "ErrorPage.button": "Reload page",
+  "sidebar.toggle": "Toggle sidebar",
+  "Login": "Login",
+  "username": "Username",
+  "password": "Password",
+  "Auth.form": "Login form",
+  "Wrong username or password": "Wrong username or password",
+  "Logout": "Logout"
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Тест",
+  "Translate": "Перевод",
+  "MainPage.title": "Главная",
+  "AboutPage.title": "О сайте",
+  "NotFoundPage.title": "Страница не найдена",
+  "Language": "Русский",
+  "Language.short": "RU",
+  "ErrorPage.title": "Произошла непредвиденная ошибка",
+  "ErrorPage.button": "Перезагрузить страницу",
+  "sidebar.toggle": "Переключить сайдбар",
+  "Login": "Войти",
+  "username": "Имя пользователя",
+  "password": "Пароль",
+  "Auth.form": "Форма авторизации",
+  "Wrong username or password": "Неверное имя пользователя или пароль",
+  "Logout": "Выйти"
+}
