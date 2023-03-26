@@ -21,11 +21,12 @@ const getSkeletons = (view: ArticleView) => {
 export const ArticleList = memo((props: ArticleListProps) => {
   const { className, articles, view = ArticleView.SMALL, isLoading } = props;
 
-  if (isLoading) {
-    return <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>{getSkeletons(view)}</div>;
-  }
-
   const renderArticle = (article: Article) => <ArticleListItem article={article} view={view} className={cls.card} key={article.id} />;
 
-  return <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>{articles.length > 0 ? articles.map(renderArticle) : null}</div>;
+  return (
+    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      {articles.length > 0 ? articles.map(renderArticle) : null}
+      {isLoading && getSkeletons(view)}
+    </div>
+  );
 });
