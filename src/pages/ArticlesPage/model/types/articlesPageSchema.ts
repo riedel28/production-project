@@ -1,6 +1,10 @@
 import { EntityState } from '@reduxjs/toolkit';
-
-import { Article, ArticleView, ArticleSortField, ArticleType } from 'entities/Article';
+import {
+  Article,
+  ArticleView,
+  ArticleSortField,
+  ArticleType
+} from 'entities/Article';
 import { SortOrder } from 'shared/types';
 
 export interface ArticlesPageSchema extends EntityState<Article> {
@@ -9,9 +13,8 @@ export interface ArticlesPageSchema extends EntityState<Article> {
 
   // pagination
   page: number;
-  limit?: number;
+  limit: number;
   hasMore: boolean;
-
   // filters
   view: ArticleView;
   order: SortOrder;

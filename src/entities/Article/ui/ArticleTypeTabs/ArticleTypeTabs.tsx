@@ -43,5 +43,12 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     [onChangeType]
   );
 
-  return <Tabs tabs={typeTabs} value={value} onTabClick={onTabClick} className={classNames('', {}, [className])} />;
+  return (
+    <Tabs
+      tabs={typeTabs}
+      value={value}
+      onTabClick={onTabClick}
+      className={classNames('', {}, [className])}
+    />
+  );
 });

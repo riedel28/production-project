@@ -5,9 +5,18 @@ import { Input } from 'shared/ui/Input/Input';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import {
+  DynamicModuleLoader,
+  ReducersList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  addCommentFormActions,
+  addCommentFormReducer
+} from '../../model/slices/addCommentFormSlice';
+import {
+  getAddCommentFormError,
+  getAddCommentFormText
+} from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
@@ -41,7 +50,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.AddCommentForm, {}, [className])}>
-        <Input className={cls.input} placeholder={t('Введите текст комментария')} value={text} onChange={onCommentTextChange} />
+        <Input
+          className={cls.input}
+          placeholder={t('Введите текст комментария')}
+          value={text}
+          onChange={onCommentTextChange}
+        />
         <Button theme={ButtonTheme.OUTLINE} onClick={onSendHandler}>
           {t('Отправить')}
         </Button>

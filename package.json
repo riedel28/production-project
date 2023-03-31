@@ -22,7 +22,8 @@
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
     "json-server": "json-server --watch ./json-server/db.json --port 8000",
-    "start:dev:server": "node ./json-server/index.js"
+    "start:dev:server": "node ./json-server/index.js",
+    "format": "npx prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -60,6 +61,7 @@
     "css-loader": "^6.6.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
