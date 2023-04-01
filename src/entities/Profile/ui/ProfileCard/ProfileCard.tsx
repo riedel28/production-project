@@ -12,19 +12,19 @@ import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
-    className?: string;
-    data?: Profile;
-    error?: string;
-    isLoading?: boolean;
-    readonly?: boolean;
-    onChangeLastname?: (value?: string) => void;
-    onChangeFirstname?: (value?: string) => void;
-    onChangeCity?: (value?: string) => void;
-    onChangeAge?: (value?: string) => void;
-    onChangeUsername?: (value?: string) => void;
-    onChangeAvatar?: (value?: string) => void;
-    onChangeCurrency?: (currency: Currency) => void;
-    onChangeCountry?: (country: Country) => void;
+  className?: string;
+  data?: Profile;
+  error?: string;
+  isLoading?: boolean;
+  readonly?: boolean;
+  onChangeLastname?: (value?: string) => void;
+  onChangeFirstname?: (value?: string) => void;
+  onChangeCity?: (value?: string) => void;
+  onChangeAge?: (value?: string) => void;
+  onChangeUsername?: (value?: string) => void;
+  onChangeAvatar?: (value?: string) => void;
+  onChangeCurrency?: (currency: Currency) => void;
+  onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -47,7 +47,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+      <div
+        className={classNames(cls.ProfileCard, { [cls.loading]: true }, [
+          className
+        ])}
+      >
         <Loader />
       </div>
     );

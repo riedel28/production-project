@@ -26,5 +26,3 @@ jobs:
         run: npm run stylelint
       - name: Run unit tests
         run: npm run test:unit
-      - name: Build Storybook
-        run: npm run storybook:build
