@@ -10,5 +10,8 @@
 .loki/report.html
 .loki/report.json
 
+# Tests
+/reports
+
 # Misc
 .DS_Store
