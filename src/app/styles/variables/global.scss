@@ -1,6 +1,6 @@
 :root {
-  --font-family-main: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
-    oxygen, ubuntu, cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-family-main: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu,
+    cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   // S
   --font-size-s: 12px;
@@ -28,7 +28,7 @@
   --sidebar-width-collapsed: 80px;
 
   // z - Индексы
-  --modal-z-index: 10;
+  --modal-z-index: 1000;
 
   // Цвета
   --overlay-color: rgba(0 0 0 / 60%);
