@@ -77,6 +77,13 @@ module.exports = {
     'operator-linebreak': 'off',
     'react/no-array-index-key': 'off',
     'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
+    'ulbi-tv-plugin/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing']
+      }
+    ],
     'ulbi-tv-plugin/public-api-imports': [
       'error',
       {
@@ -92,7 +99,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/src/**/*.test.{ts,tsx}'],
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
       rules: {
         'i18next/no-literal-string': 'off'
       }

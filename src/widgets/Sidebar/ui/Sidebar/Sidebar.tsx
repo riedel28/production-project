@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { memo, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
-import { LangSwitcher } from '@/widgets/LangSwitcher/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import cls from './Sidebar.module.scss';
@@ -32,9 +32,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <aside
       data-testid="sidebar"
-      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-        className
-      ])}
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
     >
       <Button
         data-testid="sidebar-toggle"
