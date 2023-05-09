@@ -1,7 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
@@ -26,8 +29,8 @@ import {
 import { ArticleBlock } from '../../model/types/article';
 
 interface ArticleDetailsProps {
-    className?: string;
-    id?: string;
+  className?: string;
+  id?: string;
 }
 
 const reducers: ReducersList = {
@@ -45,29 +48,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
     case ArticleBlockType.CODE:
-      return (
-        <ArticleCodeBlockComponent
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      );
+      return <ArticleCodeBlockComponent key={block.id} block={block} className={cls.block} />;
     case ArticleBlockType.IMAGE:
-      return (
-        <ArticleImageBlockComponent
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      );
+      return <ArticleImageBlockComponent key={block.id} block={block} className={cls.block} />;
     case ArticleBlockType.TEXT:
-      return (
-        <ArticleTextBlockComponent
-          key={block.id}
-          className={cls.block}
-          block={block}
-        />
-      );
+      return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block} />;
     default:
       return null;
     }
@@ -92,21 +77,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
       </>
     );
   } else if (error) {
-    content = (
-      <Text
-        align={TextAlign.CENTER}
-        title={t('Произошла ошибка при загрузке статьи.')}
-      />
-    );
+    content = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи.')} />;
   } else {
     content = (
       <>
         <HStack justify="center" max className={cls.avatarWrapper}>
-          <Avatar
-            size={200}
-            src={article?.img}
-            className={cls.avatar}
-          />
+          <Avatar size={200} src={article?.img} className={cls.avatar} />
         </HStack>
         <VStack gap="4" max>
           <Text
