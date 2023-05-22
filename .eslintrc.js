@@ -5,7 +5,12 @@ module.exports = {
     jest: true,
     node: true
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'prettier'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:i18next/recommended',
+    'prettier'
+  ],
   settings: {
     react: {
       version: 'detect'
@@ -28,10 +33,10 @@ module.exports = {
     'unused-imports'
   ],
   rules: {
-    'react/jsx-indent': [2, 2],
-    'react/jsx-indent-props': [2, 2],
-    indent: [2, 2],
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.tsx'] }
+    ],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'off',
@@ -61,15 +66,6 @@ module.exports = {
         ]
       }
     ],
-    'max-len': [
-      'error',
-      {
-        code: 100,
-        ignoreComments: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true
-      }
-    ],
     'no-param-reassign': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
@@ -95,10 +91,15 @@ module.exports = {
       'error',
       {
         alias: '@',
-        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+        testFilesPatterns: [
+          '**/*.test.*',
+          '**/*.story.*',
+          '**/StoreDecorator.tsx'
+        ]
       }
     ],
-    'unused-imports/no-unused-imports': 'error'
+    'unused-imports/no-unused-imports': 'error',
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }]
   },
   globals: {
     __IS_DEV__: true,
