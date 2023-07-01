@@ -52,8 +52,8 @@ export const StarRating = memo((props: StarRatingProps) => {
                         [
                             currentStarsCount >= starNumber
                                 ? cls.hovered
-                                : cls.normal,
-                        ],
+                                : cls.normal
+                        ]
                     )}
                     Svg={StarIcon}
                     key={starNumber}

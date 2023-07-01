@@ -23,16 +23,16 @@ export const Avatar = ({
     src,
     size = 100,
     alt,
-    fallbackInverted,
+    fallbackInverted
 }: AvatarProps) => {
     const mods: Mods = {};
 
     const styles = useMemo<CSSProperties>(
         () => ({
             width: size,
-            height: size,
+            height: size
         }),
-        [size],
+        [size]
     );
 
     const fallback = <Skeleton width={size} height={size} border="50%" />;
