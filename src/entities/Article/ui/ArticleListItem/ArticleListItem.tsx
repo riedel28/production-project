@@ -16,7 +16,7 @@ import cls from './ArticleListItem.module.scss';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 interface ArticleListItemProps {
@@ -45,6 +45,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
       <div
+        data-testid="ArticleListItem"
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       >
         <Card className={cls.card}>
@@ -82,6 +83,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   return (
     <AppLink
+      data-testid="ArticleListItem"
       target={target}
       to={getRouteArticleDetails(article.id)}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
