@@ -2,22 +2,22 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        jest: true,
+        jest: true
     },
     extends: [
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
-        'prettier',
+        'prettier'
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
-            jsx: true,
+            jsx: true
         },
         ecmaVersion: 'latest',
-        sourceType: 'module',
+        sourceType: 'module'
     },
     plugins: [
         'react',
@@ -25,15 +25,15 @@ module.exports = {
         'i18next',
         'react-hooks',
         'ulbi-tv-plugin',
-        'unused-imports',
+        'unused-imports'
     ],
     rules: {
         'unused-imports/no-unused-imports': 'error',
         'react/jsx-filename-extension': [
             2,
             {
-                extensions: ['.js', '.jsx', '.tsx'],
-            },
+                extensions: ['.js', '.jsx', '.tsx']
+            }
         ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
@@ -64,16 +64,16 @@ module.exports = {
                     'feature',
                     'color',
                     'variant',
-                    'size',
-                ],
-            },
+                    'size'
+                ]
+            }
         ],
         'max-len': [
             'error',
             {
                 ignoreComments: true,
-                code: 125,
-            },
+                code: 125
+            }
         ],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
@@ -88,15 +88,15 @@ module.exports = {
         'ulbi-tv-plugin/path-checker': [
             'error',
             {
-                alias: '@',
-            },
+                alias: '@'
+            }
         ],
         'ulbi-tv-plugin/layer-imports': [
             'error',
             {
                 alias: '@',
-                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-            },
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing']
+            }
         ],
         'ulbi-tv-plugin/public-api-imports': [
             'error',
@@ -105,25 +105,25 @@ module.exports = {
                 testFilesPatterns: [
                     '**/*.test.*',
                     '**/*.story.*',
-                    '**/StoreDecorator.tsx',
-                ],
-            },
+                    '**/StoreDecorator.tsx'
+                ]
+            }
         ],
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
-        'react/no-unstable-nested-components': 'warn',
+        'react/no-unstable-nested-components': 'warn'
     },
     globals: {
         __IS_DEV__: true,
         __API__: true,
-        __PROJECT__: true,
+        __PROJECT__: true
     },
     overrides: [
         {
             files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
-                'max-len': 'off',
-            },
-        },
-    ],
+                'max-len': 'off'
+            }
+        }
+    ]
 };

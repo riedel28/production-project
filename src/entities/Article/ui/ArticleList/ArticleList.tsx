@@ -33,7 +33,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view = ArticleView.SMALL,
         isLoading,
-        target,
+        target
     } = props;
     const { t } = useTranslation();
 
@@ -42,7 +42,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             <div
                 className={classNames(cls.ArticleList, {}, [
                     className,
-                    cls[view],
+                    cls[view]
                 ])}
             >
                 <Text size={TextSize.L} title={t('Статьи не найдены')} />
