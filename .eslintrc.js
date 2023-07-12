@@ -110,7 +110,8 @@ module.exports = {
             }
         ],
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
-        'react/no-unstable-nested-components': 'warn'
+        'react/no-unstable-nested-components': 'warn',
+        'react/jsx-props-no-spreading': 'off'
     },
     globals: {
         __IS_DEV__: true,

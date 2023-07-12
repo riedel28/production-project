@@ -48,7 +48,7 @@ function isToggleComponent(node: Node) {
 
 const replaceToggleFunction = (node: Node) => {
     const objectOptions = node.getFirstDescendantByKind(
-        SyntaxKind.ObjectLiteralExpression,
+        SyntaxKind.ObjectLiteralExpression
     );
 
     if (!objectOptions) return;
@@ -59,10 +59,10 @@ const replaceToggleFunction = (node: Node) => {
     const featureNameProperty = objectOptions.getProperty('name');
 
     const onFunction = onFunctionProperty?.getFirstDescendantByKind(
-        SyntaxKind.ArrowFunction,
+        SyntaxKind.ArrowFunction
     );
     const offFunction = offFunctionProperty?.getFirstDescendantByKind(
-        SyntaxKind.ArrowFunction,
+        SyntaxKind.ArrowFunction
     );
     const featureName = featureNameProperty
         ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
@@ -82,7 +82,7 @@ const replaceToggleFunction = (node: Node) => {
 
 const getAttributeNodeByName = (
     jsxAttributes: JsxAttribute[],
-    name: string,
+    name: string
 ) => {
     return jsxAttributes.find((node) => node.getName() === name);
 };
@@ -138,6 +138,8 @@ files.forEach((sourceFile) => {
         ) {
             return replaceComponent(node);
         }
+
+        return node;
     });
 });
 

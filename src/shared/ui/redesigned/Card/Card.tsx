@@ -19,7 +19,7 @@ const mapPaddingToClass: Record<CardPadding, string> = {
     '0': 'gap_0',
     '8': 'gap_8',
     '16': 'gap_16',
-    '24': 'gap_24',
+    '24': 'gap_24'
 };
 
 export const Card = memo((props: CardProps) => {
@@ -41,7 +41,7 @@ export const Card = memo((props: CardProps) => {
                 className,
                 cls[variant],
                 cls[paddingClass],
-                cls[border],
+                cls[border]
             ])}
             {...otherProps}
         >
