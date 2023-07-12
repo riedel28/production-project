@@ -28,7 +28,7 @@ export const AppLink = memo((props: AppLinkProps) => {
             className={({ isActive }) =>
                 classNames(cls.AppLink, { [activeClassName]: isActive }, [
                     className,
-                    cls[variant]
+                    cls[variant],
                 ])
             }
             {...otherProps}

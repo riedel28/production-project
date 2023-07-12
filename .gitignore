@@ -1,17 +1,9 @@
-/node_modules
 /build
-
-# Editor
-/.idea
-/.vscode
-
+node_modules
+.idea
 /storybook-static
-
 .loki/report.html
 .loki/report.json
+/reports/unit
 
-# Tests
-/reports
-
-# Misc
 .DS_Store

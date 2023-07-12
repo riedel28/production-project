@@ -3,7 +3,7 @@ import React, {
     memo,
     useEffect,
     useRef,
-    useState
+    useState,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
@@ -67,7 +67,7 @@ export const Input = memo((props: InputProps) => {
     };
 
     const mods: Mods = {
-        [cls.readonly]: readonly
+        [cls.readonly]: readonly,
     };
 
     return (

@@ -35,7 +35,7 @@ export function Dropdown(props: DropdownProps) {
             as="div"
             className={classNames(cls.Dropdown, {}, [
                 className,
-                popupCls.popup
+                popupCls.popup,
             ])}
         >
             <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
@@ -47,7 +47,7 @@ export function Dropdown(props: DropdownProps) {
                             disabled={item.disabled}
                             onClick={item.onClick}
                             className={classNames(cls.item, {
-                                [popupCls.active]: active
+                                [popupCls.active]: active,
                             })}
                         >
                             {item.content}

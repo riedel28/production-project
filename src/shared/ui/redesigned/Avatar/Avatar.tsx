@@ -19,9 +19,9 @@ export const Avatar = ({ className, src, size = 100, alt }: AvatarProps) => {
     const styles = useMemo<CSSProperties>(
         () => ({
             width: size,
-            height: size
+            height: size,
         }),
-        [size]
+        [size],
     );
 
     const fallback = <Skeleton width={size} height={size} border="50%" />;

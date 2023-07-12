@@ -26,14 +26,14 @@ export const Modal = (props: ModalProps) => {
     const { close, isClosing, isMounted } = useModal({
         animationDelay: ANIMATION_DELAY,
         onClose,
-        isOpen
+        isOpen,
     });
 
     const { theme } = useTheme();
 
     const mods: Mods = {
         [cls.opened]: isOpen,
-        [cls.isClosing]: isClosing
+        [cls.isClosing]: isClosing,
     };
 
     if (lazy && !isMounted) {
@@ -46,7 +46,7 @@ export const Modal = (props: ModalProps) => {
                 className={classNames(cls.Modal, mods, [
                     className,
                     theme,
-                    'app_modal'
+                    'app_modal',
                 ])}
             >
                 <Overlay onClick={close} />
