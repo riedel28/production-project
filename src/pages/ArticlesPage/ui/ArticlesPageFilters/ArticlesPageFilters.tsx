@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { Input } from '@/shared/ui/deprecated/Input';
 import cls from './ArticlesPageFilters.module.scss';
 
@@ -27,7 +27,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         onChangeView,
         view,
         onChangeOrder,
-        order,
+        order
     } = useArticleFilters();
 
     return (

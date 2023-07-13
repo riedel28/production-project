@@ -22,7 +22,7 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
             on={
                 <Card
                     className={classNames(cls.NotificationItem, {}, [
-                        className,
+                        className
                     ])}
                 >
                     <Text title={item.title} text={item.description} />
@@ -32,7 +32,7 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
                 <CardDeprecated
                     theme={CardTheme.OUTLINED}
                     className={classNames(cls.NotificationItem, {}, [
-                        className,
+                        className
                     ])}
                 >
                     <TextDeprecated
