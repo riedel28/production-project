@@ -27,7 +27,7 @@ export const Page = memo((props: PageProps) => {
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
     const scrollPosition = useSelector((state: StateSchema) =>
-        getUIScrollByPath(state, pathname),
+        getUIScrollByPath(state, pathname)
     );
 
     useInfiniteScroll({
@@ -35,9 +35,9 @@ export const Page = memo((props: PageProps) => {
         wrapperRef: toggleFeatures({
             name: 'isAppRedesigned',
             on: () => undefined,
-            off: () => wrapperRef,
+            off: () => wrapperRef
         }),
-        callback: onScrollEnd,
+        callback: onScrollEnd
     });
 
     useInitialEffect(() => {
@@ -48,8 +48,8 @@ export const Page = memo((props: PageProps) => {
         dispatch(
             uiActions.setScrollPosition({
                 position: e.currentTarget.scrollTop,
-                path: pathname,
-            }),
+                path: pathname
+            })
         );
     }, 500);
 
@@ -60,10 +60,10 @@ export const Page = memo((props: PageProps) => {
                 toggleFeatures({
                     name: 'isAppRedesigned',
                     on: () => cls.PageRedesigned,
-                    off: () => cls.Page,
+                    off: () => cls.Page
                 }),
                 {},
-                [className],
+                [className]
             )}
             onScroll={onScroll}
             id={PAGE_ID}
