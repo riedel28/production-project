@@ -7,8 +7,8 @@ export default {
     title: 'shared/Code',
     component: Code,
     argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+        backgroundColor: { control: 'color' }
+    }
 } as ComponentMeta<typeof Code>;
 
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
@@ -26,5 +26,5 @@ Normal.args = {
         '\n' +
         'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n' +
         '\n' +
-        'export const Normal = Template.bind({});',
+        'export const Normal = Template.bind({});'
 };
