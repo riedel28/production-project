@@ -57,6 +57,7 @@ export const Flex = (props: FlexProps) => {
         justify = 'start',
         align = 'center',
         direction = 'row',
+        wrap = 'nowrap',
         gap,
         max,
         ...otherProps
@@ -67,6 +68,7 @@ export const Flex = (props: FlexProps) => {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
+        cls[wrap],
         gap && gapClasses[gap]
     ];
 
