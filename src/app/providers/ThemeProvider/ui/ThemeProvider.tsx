@@ -14,7 +14,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     const [isThemeInited, setThemeInited] = useState(false);
 
     const [theme, setTheme] = useState<Theme>(
-        initialTheme || defaultTheme || Theme.LIGHT,
+        initialTheme || defaultTheme || Theme.LIGHT
     );
 
     useEffect(() => {
@@ -24,12 +24,16 @@ const ThemeProvider = (props: ThemeProviderProps) => {
         }
     }, [defaultTheme, isThemeInited]);
 
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
+
     const defaultProps = useMemo(
         () => ({
             theme,
-            setTheme,
+            setTheme
         }),
-        [theme],
+        [theme]
     );
 
     return (
