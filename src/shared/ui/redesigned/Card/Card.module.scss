@@ -11,16 +11,20 @@
     border-radius: 12px;
 }
 
+.round {
+    border-radius: 40px;
+}
+
+.partial {
+    border-radius: 20px;
+}
+
 .light {
     background: var(--light-bg-redesigned);
 }
 
 .outlined {
     border: 1px solid var(--accent-redesigned);
-}
-
-.round {
-    border-radius: 40px;
 }
 
 .max {
