@@ -40,7 +40,7 @@ module.exports = {
         'no-unused-vars': 'off',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-props-no-spreading': 'warn',
+        'react/jsx-props-no-spreading': 'off',
         'react/function-component-definition': 'off',
         'no-shadow': 'off',
         'import/extensions': 'off',
@@ -64,7 +64,8 @@ module.exports = {
                     'feature',
                     'color',
                     'variant',
-                    'size'
+                    'size',
+                    'wrap'
                 ]
             }
         ],
@@ -110,8 +111,7 @@ module.exports = {
             }
         ],
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
-        'react/no-unstable-nested-components': 'warn',
-        'react/jsx-props-no-spreading': 'off'
+        'react/no-unstable-nested-components': 'warn'
     },
     globals: {
         __IS_DEV__: true,

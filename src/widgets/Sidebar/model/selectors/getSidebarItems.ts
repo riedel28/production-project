@@ -1,4 +1,4 @@
-import { createSelector } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import MainIconDeprecated from '@/shared/assets/icons/main-20-20.svg';
 import AboutIconDeprecated from '@/shared/assets/icons/about-20-20.svg';
@@ -15,30 +15,31 @@ import {
     getRouteAbout,
     getRouteArticles,
     getRouteMain,
-    getRouteProfile,
+    getRouteProfile
 } from '@/shared/const/router';
 import { toggleFeatures } from '@/shared/lib/features';
 
-export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+export const useSidebarItems = () => {
+    const userData = useSelector(getUserAuthData);
     const sidebarItemsList: SidebarItemType[] = [
         {
             path: getRouteMain(),
             Icon: toggleFeatures({
                 name: 'isAppRedesigned',
                 off: () => MainIconDeprecated,
-                on: () => MainIcon,
+                on: () => MainIcon
             }),
-            text: 'Главная',
+            text: 'Главная'
         },
         {
             path: getRouteAbout(),
             Icon: toggleFeatures({
                 name: 'isAppRedesigned',
                 off: () => AboutIconDeprecated,
-                on: () => AboutIcon,
+                on: () => AboutIcon
             }),
-            text: 'О сайте',
-        },
+            text: 'О сайте'
+        }
     ];
 
     if (userData) {
@@ -48,23 +49,23 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 Icon: toggleFeatures({
                     name: 'isAppRedesigned',
                     off: () => ProfileIconDeprecated,
-                    on: () => ProfileIcon,
+                    on: () => ProfileIcon
                 }),
                 text: 'Профиль',
-                authOnly: true,
+                authOnly: true
             },
             {
                 path: getRouteArticles(),
                 Icon: toggleFeatures({
                     name: 'isAppRedesigned',
                     off: () => ArticleIconDeprecated,
-                    on: () => ArticleIcon,
+                    on: () => ArticleIcon
                 }),
                 text: 'Статьи',
-                authOnly: true,
-            },
+                authOnly: true
+            }
         );
     }
 
     return sidebarItemsList;
-});
+};
