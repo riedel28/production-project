@@ -38,7 +38,7 @@ export function ListBox(props: ListBoxProps) {
         onChange,
         readonly,
         direction = 'bottom right',
-        label,
+        label
     } = props;
 
     const optionsClasses = [mapDirectionClass[direction]];
@@ -51,7 +51,7 @@ export function ListBox(props: ListBoxProps) {
                 as="div"
                 className={classNames(cls.ListBox, {}, [
                     className,
-                    popupCls.popup,
+                    popupCls.popup
                 ])}
                 value={value}
                 onChange={onChange}
@@ -73,7 +73,7 @@ export function ListBox(props: ListBoxProps) {
                                 <li
                                     className={classNames(cls.item, {
                                         [popupCls.active]: active,
-                                        [popupCls.disabled]: item.disabled,
+                                        [popupCls.disabled]: item.disabled
                                     })}
                                 >
                                     {selected && '!!!'}

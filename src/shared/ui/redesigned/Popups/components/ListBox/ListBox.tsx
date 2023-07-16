@@ -36,7 +36,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
         onChange,
         readonly,
         direction = 'bottom right',
-        label,
+        label
     } = props;
 
     const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
@@ -53,19 +53,18 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                 as="div"
                 className={classNames(cls.ListBox, {}, [
                     className,
-                    popupCls.popup,
+                    popupCls.popup
                 ])}
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button disabled={readonly} className={cls.trigger}>
-                    <Button
-                        variant="filled"
-                        disabled={readonly}
-                        addonRight={<Icon Svg={ArrowIcon} />}
-                    >
-                        {selectedItem?.content ?? defaultValue}
-                    </Button>
+                <HListBox.Button
+                    as={Button}
+                    variant="filled"
+                    disabled={readonly}
+                    addonRight={<Icon Svg={ArrowIcon} />}
+                >
+                    {selectedItem?.content ?? defaultValue}
                 </HListBox.Button>
                 <HListBox.Options
                     className={classNames(cls.options, {}, optionsClasses)}
@@ -82,7 +81,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                                     className={classNames(cls.item, {
                                         [popupCls.active]: active,
                                         [popupCls.disabled]: item.disabled,
-                                        [popupCls.selected]: selected,
+                                        [popupCls.selected]: selected
                                     })}
                                 >
                                     {selected}
