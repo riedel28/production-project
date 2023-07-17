@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
     LOCAL_STORAGE_LAST_DESIGN_KEY,
     USER_LOCALSTORAGE_KEY
-} from '@/shared/const/localstorage';
+} from '@/shared/const/localStorage';
 import { UserSchema, User } from '../types/user';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';

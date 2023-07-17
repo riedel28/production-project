@@ -5,7 +5,7 @@ import { User } from '../types/user';
 import {
     LOCAL_STORAGE_LAST_DESIGN_KEY,
     USER_LOCALSTORAGE_KEY
-} from '@/shared/const/localstorage';
+} from '@/shared/const/localStorage';
 
 export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
     'user/initAuthData',
