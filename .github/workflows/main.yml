@@ -1,28 +1,98 @@
-name: GitHub Actions Demo
+#name: linting, testing, building
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+#jobs:
+#  pipeline:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        node-version: [ 17.x ]
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Staring Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#      - name: install modules
+#        run: npm ci --force
+#      - name: build production project
+#        run: npm run build:prod
+#        if: always()
+#      - name: linting typescript
+#        run: npm run lint:ts
+#        if: always()
+#      - name: linting css
+#        run: npm run lint:scss
+#      - name: unit testing
+#        if: always()
+#        run: npm run test:unit
+#      - name: build storybook
+#        run: npm run storybook:build
+#        if: always()
+#      - name: screenshot testing
+#        run: npm run test:ui:ci
+#        if: always()
+
+name: linting, testing, building
 on:
-  push:
-    branches: [master]
-  pull_request: # This is the default event that triggers the workflow.
-    branches: [master]
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+permissions:
+    contents: write
+    pages: write
+    id-token: write
+concurrency:
+    group: 'pages'
+    cancel-in-progress: true
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [17.x]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: npm install
-      - name: Build production
-        run: npm run build:prod
-      - name: Lint TypeScript
-        run: npm run lint
-      - name: Lint CSS
-        run: npm run stylelint
-      - name: Run unit tests
-        run: npm run test:unit
+    build-and-ui-testing:
+        runs-on: ubuntu-latest
+        concurrency: ci-${{ github.ref }}
+        # environment:
+        #     name: staging_environment
+        #     url: ${{ steps.deployment.outputs.page_url }}
+        strategy:
+            matrix:
+                node-version: [17.x]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Staring Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: install modules
+              run: npm ci --force
+            - name: build production project
+              run: npm run build:prod
+              if: always()
+            - name: build storybook
+              run: npm run storybook:build
+              if: always()
+            - name: unit testing
+              if: always()
+              run: npm run test:unit
+
+    checks:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [17.x]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Staring Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: install modules
+              run: npm ci --force
+            - name: linting typescript
+              run: npm run lint:ts
+              if: always()
+            - name: linting css
+              run: npm run lint:scss
