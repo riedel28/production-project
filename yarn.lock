@@ -4439,13 +4439,13 @@ axe-core@^4.3.5:
 
 axios@^0.21.1:
   version "0.21.4"
-  resolved "https://registry.npmjs.org/axios/-/axios-0.21.4.tgz"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
   dependencies:
     follow-redirects "^1.14.0"
 
 axios@^0.28.0:
-  version "0.28.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.28.0.tgz#801a4d991d0404961bccef46800e1170f8278c89"
+  version "0.28.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.28.1.tgz#2a7bcd34a3837b71ee1a5ca3762214b86b703e70"
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
